@@ -66,15 +66,21 @@ console.log("Median of array", getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23
 
 //(5 function) get odd numbers
 const filterEvenNumbers = (...numbers) => {
-  return numbers.filter(n => n % 2);
+  return numbers.filter(number => number % 2);
 }
 
 console.log("Odd numbers", filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //(6 function) Positive numbers
-
 const countPositiveNumbers = (...numbers) => {
-  return numbers.filter(n => n > 0).length;
+  return numbers.filter(number => number > 0).length;
 }
 
 console.log("Count positive numbers", countPositiveNumbers(1, -2, 3, -4, -5, 6));
+
+//(7 function) Divided by 5
+const getDividedByFive = (...numbers) => {
+  return numbers.filter(number => Number.isInteger(number / 5)).length;
+}
+
+console.log("Count divided numbers by five", getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
