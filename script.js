@@ -52,27 +52,29 @@ console.log("Average value", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23,
 const getMedian = (...numbers) => {
   const filteredArray = filterIntegerNumber(numbers);
   const sortedArray = filteredArray.sort((a, b) => a - b);
-  const arrayLength = sortedArray.length;
-  const indexOfMiddleElement = arrayLength / 2;
-  const isMiddleElementInteger = Number.isInteger(indexOfMiddleElement);
+  const indexOfMiddleElement = sortedArray.length / 2;
 
-  if(isMiddleElementInteger) {
-    let index = (sortedArray[indexOfMiddleElement] + sortedArray[indexOfMiddleElement - 1]) / 2;
+  return Number.isInteger(indexOfMiddleElement)
+      ? sortedArray[
+          (sortedArray[indexOfMiddleElement] +
+          sortedArray[indexOfMiddleElement - 1]) / 2
+        ]
+      : sortedArray[Math.floor(indexOfMiddleElement)];
+};
 
-    return sortedArray[index];
-  } else {
-    let index = indexOfMiddleElement - 0.5;
-
-    return sortedArray[index];
-  }
-
-}
-
-console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log("Median of array", getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //(5 function) get odd numbers
 const filterEvenNumbers = (...numbers) => {
   return numbers.filter(n => n % 2);
 }
 
-console.log(filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+console.log("Odd numbers", filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
+
+//(6 function) Positive numbers
+
+const countPositiveNumbers = (...numbers) => {
+  return numbers.filter(n => n > 0).length;
+}
+
+console.log("Count positive numbers", countPositiveNumbers(1, -2, 3, -4, -5, 6));
