@@ -49,11 +49,30 @@ const getAverage = (...numbers) => {
 console.log("Average value", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //(4 function) get Median
+const getMedian = (...numbers) => {
+  const filteredArray = filterIntegerNumber(numbers);
+  const sortedArray = filteredArray.sort((a, b) => a - b);
+  const arrayLength = sortedArray.length;
+  const indexOfMiddleElement = arrayLength / 2;
+  const isMiddleElementInteger = Number.isInteger(indexOfMiddleElement);
 
+  if(isMiddleElementInteger) {
+    let index = (sortedArray[indexOfMiddleElement] + sortedArray[indexOfMiddleElement - 1]) / 2;
+
+    return sortedArray[index];
+  } else {
+    let index = indexOfMiddleElement - 0.5;
+
+    return sortedArray[index];
+  }
+
+}
+
+console.log(getMedian(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
 //(5 function) get odd numbers
 const filterEvenNumbers = (...numbers) => {
   return numbers.filter(n => n % 2);
 }
 
-console.log(filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
+console.log(filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
