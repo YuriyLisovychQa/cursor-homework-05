@@ -48,5 +48,12 @@ const getAverage = (...numbers) => {
 
 console.log("Average value", getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2));
 
-//(4 function) getMedian
-// const getMedian = (...numbers)
+//(4 function) get Median
+
+
+//(5 function) get odd numbers
+const filterEvenNumbers = (...numbers) => {
+  return numbers.filter(n => n % 2);
+}
+
+console.log(filterEvenNumbers(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2))
